@@ -98,11 +98,23 @@ namespace CRUD.Transaction.CRUDApi.Core.Context
 
         public Task<int> DeleteAsync(T entity)
         {
-            if (entity == null) throw new ArgumentNullException("entity", "Delete error - entity is null.  Delete failed.");
-            if (entity.ObjectState == ObjectStateType.Deleted)
-            { Set<IObjectState>().Remove(entity); }
-            else { throw new InvalidOperationException($"Save error - only ObjectState Modified supported.  Entity.ObjectState is {entity.ObjectState} and is not supported with Save()."); }
-            return SaveChangesAsync();
+            try
+            {
+                if (entity == null) throw new ArgumentNullException("entity", "Delete error - entity is null.  Delete failed.");
+                if (entity.ObjectState == ObjectStateType.Deleted)
+                { Set<T>().Remove(entity);
+                    //Set<IObjectState>().Remove(entity);
+                }
+                else { throw new InvalidOperationException($"Save error - only ObjectState Modified supported.  Entity.ObjectState is {entity.ObjectState} and is not supported with Save()."); }
+                return SaveChangesAsync();
+            }
+            catch(Exception ex)
+            {
+                var exx = ex;
+                return null;
+            }
+
+           
         }
 
         public virtual Task<int> SaveAsync(T entity)

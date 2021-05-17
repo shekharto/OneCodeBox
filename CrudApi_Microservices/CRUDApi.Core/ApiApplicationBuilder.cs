@@ -18,7 +18,7 @@ namespace CRUD.Transaction.CRUDApi.Core
 	public class ApiApplicationBuilder
 	{
 		private readonly string _CorsPolicy = "AllowCorsPolicy";
-		private readonly string[] _allowedMethods = new string[4] { "GET", "POST", "PATCH", "PUT" };
+		private readonly string[] _allowedMethods = new string[5] { "GET", "POST", "PATCH", "PUT" , "DELETE"};
 		private static IConfiguration _configuration;
 
 		public ApiApplicationBuilder() { }

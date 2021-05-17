@@ -118,10 +118,30 @@ namespace CRUD.Transaction.CRUDApi.Core.Controllers
             }
         }
 
+        [HttpDelete()]
+        [Route("{id}")]
+        public virtual async Task<IApiResult> Delete(int id)
+        {
+            StopWatch watch = StopWatch.StartNew();
+            var entity = await Repository.GetAsync(id);
+            if (entity != null)
+            {
+                entity.ObjectState = ObjectStateType.Deleted;
+                var records = await Repository.SaveAsync(entity);
+                watch.Stop();
+                if (records > 0)
+                {
+                    //  await HandlePostAsync(entity, typeof(ApiAsyncController<TEntity>).GetMethod("Delete"));
+                    return ApiResult<int>.Ok(new int[] { records }, watch.Elapsed);
+                }
+            }
+            return await GetResultAsync<int>(Repository.DeleteAsync, id);
+        }
+
 
         [HttpPost()]
         [Route("{id}")]
-        public virtual async Task<IApiResult> Delete(int id)
+        public virtual async Task<IApiResult> PostDelete(int id)
         {
             StopWatch watch = StopWatch.StartNew();
             var entity = await Repository.GetAsync(id);
@@ -138,7 +158,6 @@ namespace CRUD.Transaction.CRUDApi.Core.Controllers
             }
             return await GetResultAsync<int>(Repository.DeleteAsync, id);
         }
-
 
         #region ResultGenerator methods
 

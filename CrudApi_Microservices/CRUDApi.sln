@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product.Api", "Product.Api\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{617CFD8B-987A-49FB-A184-F999E7599F6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.Entities", "Product.Entities\Product.Entities.csproj", "{96CB3D7C-8CE1-4D91-9AA4-44A024E0992F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product.Entities", "Product.Entities\Product.Entities.csproj", "{96CB3D7C-8CE1-4D91-9AA4-44A024E0992F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.Model", "Product.Model\Product.Model.csproj", "{E3A24555-FCB8-4BE1-ABFF-CEF7D0FA568D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product.Model", "Product.Model\Product.Model.csproj", "{E3A24555-FCB8-4BE1-ABFF-CEF7D0FA568D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
