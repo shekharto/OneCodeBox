@@ -1,0 +1,14 @@
+
+A) Microservice or C#/asp.net core -- done
+1. upgrade the exisiting microservice-framework, to save list of data at a time, delete, update at a time. -- done
+2.  logic to create zip and break it in specific size in backend.
+
+
+
+
+B) UI
+1. sorting library/common function tobe developed.
+2. create some UI common component.
+3. create zip from UI POC.
+4. check how to make a angular build and deploy.
+5. check if i download the code from git does it download correct angular and compile it.
