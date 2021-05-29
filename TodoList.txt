@@ -2,13 +2,15 @@
 A) Microservice or C#/asp.net core -- done
 1. upgrade the exisiting microservice-framework, to save list of data at a time, delete, update at a time. -- done
 2.  logic to create zip and break it in specific size in backend.
-
+3. need to create seperate db and deploy api on IIS.
+4. implement gRPC.
+5. make or join the microservice existing framework with different entities ... a) add response class.
 
 
 
 B) UI
-1. sorting library/common function tobe developed.
+1. sorting library/common function tobe developed. -- done.
 2. create some UI common component.
-3. create zip from UI POC.
+3. create zip from UI POC. -- done
 4. check how to make a angular build and deploy.
 5. check if i download the code from git does it download correct angular and compile it.
