@@ -10,7 +10,8 @@ export class ProductService extends BaseService {
 
   constructor(private httpClient: HttpClient) {
     super();
-    this.url = `http://localhost:1099/Product`;
+  //  this.url = `http://localhost:1020/Product`;
+    this.url = this.getApiUrl();
   }
 
   getProducts(): Promise<ApiResult<Product>> {

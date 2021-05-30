@@ -10,8 +10,23 @@
 
 table {
   width: 100%;
+  border: 1px solid gray;
 }
 
 th.mat-sort-header-sorted {
   color: black;
+}
+
+/*th,td {
+  border: 1px solid gray;
+}*/
+
+table.a {
+  border: 1px solid black;
+  table-layout: auto;
+  width: 180px;
+}
+
+th.a,td.a {
+  border: 1px solid gray;
 }

@@ -11,6 +11,7 @@ import {ProductRepository} from "./repositories/product.repository";
 import { EventType } from '../shared/entities/enums';
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import { DialogProductComponent } from "./dialog-product/dialog-product.component";
+import {SortingService} from "../shared/service/sorting.service";
 
 @Component({
   selector: 'app-microservice-curd-product',
@@ -19,14 +20,17 @@ import { DialogProductComponent } from "./dialog-product/dialog-product.componen
 })
 export class MicroserviceCurdProductComponent extends ComponentBase implements OnInit {
   displayedColumns = ['select', 'name', 'description', 'active'];
+  sortingDisplayedColumns = [ 'name', 'description', 'active'];
   private _displayProducts: Product[] = [];
   private product: Product;
   selectedProductId: number;
   sortedData: any;
   selection = new SelectionModel<Product>(true, []);
+  baseProductData: any;
+  directData: Product[] = [];
 
   constructor(  self: ElementRef, injector: Injector,private productRepository: ProductRepository,
-              private location: Location,
+              private location: Location, public sortingService: SortingService,
               private eventService: EventService,
                 private  dialog: MatDialog ) {
     super(self, injector);
@@ -35,6 +39,7 @@ export class MicroserviceCurdProductComponent extends ComponentBase implements O
   ngOnInit() {
     this.loadProduct();
     this.subscribeEvents();
+    this.sortingService.sortingParameter = [];
   }
 
   /* private / public methods */
@@ -43,11 +48,9 @@ export class MicroserviceCurdProductComponent extends ComponentBase implements O
     this.productRepository.getProducts().then(
       data => {
         this.displayProducts =  data;
+        this.directData = data;
        }
-    )
-
-
-  }
+    )}
 
   deleteProduct(): void {
   this.productRepository.deleteProduct(this.selectedProductId).then(
@@ -74,15 +77,13 @@ export class MicroserviceCurdProductComponent extends ComponentBase implements O
 
       },
         });
-
       });
   }
 
-
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.sortedData.data.length;
+    const numSelected = this.selection.selected && this.selection.selected.length;
+    const numRows =  this.sortedData.data && this.sortedData.data.length;
     return numSelected === numRows;
   }
 
@@ -131,8 +132,17 @@ export class MicroserviceCurdProductComponent extends ComponentBase implements O
     });
   }
 
-  private compare(a: number | string | boolean, b: number | string | boolean, isAsc: boolean) {
-    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+   onClientSort(): void {
+
+  }
+
+  decode(product: Product, property: string, direction: string): any {
+    switch (property) {
+      case "name":
+        return product.name.toLowerCase();
+      case "active":
+        return product.active;
+    }
   }
 
   applyFilter(event: Event) {
@@ -145,6 +155,11 @@ export class MicroserviceCurdProductComponent extends ComponentBase implements O
   }
 
 
+
+  private compare(a: number | string | boolean, b: number | string | boolean, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+
   /* get, set properties */
   get displayProducts(): Product[] {
     return this._displayProducts;
@@ -153,6 +168,8 @@ export class MicroserviceCurdProductComponent extends ComponentBase implements O
   set displayProducts(values: Product[]) {
     this._displayProducts = values;
     this.sortedData = new MatTableDataSource<Product>(this._displayProducts);
+
+    this.baseProductData = new MatTableDataSource<Product>(this._displayProducts);
 
   }
 

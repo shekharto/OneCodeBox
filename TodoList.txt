@@ -1,10 +1,13 @@
 
 A) Microservice or C#/asp.net core -- done
 1. upgrade the exisiting microservice-framework, to save list of data at a time, delete, update at a time. -- done
-2.  logic to create zip and break it in specific size in backend.
-3. need to create seperate db and deploy api on IIS.
+2.  logic to create zip and break it in specific size in backend. -- done
+3. need to create seperate db and deploy api on IIS. -- done
 4. implement gRPC.
 5. make or join the microservice existing framework with different entities ... a) add response class.
+6. clear all the reference name and file related to allscripts in microservices framework.
+7. Create User registration, authentication , authorization with jwt,available .net core authentication model, oauth, multi-authentication...check if any other.
+8. build a common exception handle : https://codewithmukesh.com/blog/global-exception-handling-in-aspnet-core/
 
 
 
@@ -12,5 +15,5 @@ B) UI
 1. sorting library/common function tobe developed. -- done.
 2. create some UI common component.
 3. create zip from UI POC. -- done
-4. check how to make a angular build and deploy.
+4. check how to make a angular build and deploy. -- done.
 5. check if i download the code from git does it download correct angular and compile it.

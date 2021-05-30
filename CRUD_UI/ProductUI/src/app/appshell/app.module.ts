@@ -52,6 +52,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { MicroserviceCurdProductComponent } from './../microservice-curd-product/microservice-curd-product.component';
 import { AddUpdateProductComponent } from '../microservice-curd-product/add-update-product/add-update-product.component';
 import { DialogProductComponent } from '../microservice-curd-product/dialog-product/dialog-product.component';
+import {GenerateZipFileComponent} from "../ZipFile/generate-zip-file/generate-zip-file.component";
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { DialogProductComponent } from '../microservice-curd-product/dialog-prod
     AppComponent,
     MicroserviceCurdProductComponent,
     AddUpdateProductComponent,
-    DialogProductComponent
+    DialogProductComponent,
+    GenerateZipFileComponent
   ],
   imports: [
     BrowserModule,

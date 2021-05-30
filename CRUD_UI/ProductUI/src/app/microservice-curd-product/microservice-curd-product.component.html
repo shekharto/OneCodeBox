@@ -18,7 +18,7 @@
 
     <!-- Table structure -->
     <div class="product-example-sub-container  mat-elevation-z8">
-      <table mat-table [dataSource]="sortedData" matSort  (matSortChange)="sortData($event)">
+      <table mat-table id="tab1" [dataSource]="sortedData" matSort  (matSortChange)="sortData($event)">
 
         <!-- Checkbox Column -->
         <ng-container matColumnDef="select">
@@ -72,13 +72,13 @@
     <!-- add / delete /update and IEnumerable operation -->
       <div>
         <div class="onecode-padding-5px" *ngIf="displayProducts.length > 0">
-          <button   routerLink="/productdetails" mat-raised-button color="primary">Add</button>
+          <button   routerLink="/productdetails" mat-raised-button >Add</button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button  routerLink="/productdetails/{{selectedProductId}}" mat-raised-button color="primary">Update </button>
+          <button  routerLink="/productdetails/{{selectedProductId}}" mat-raised-button >Update </button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button  mat-raised-button color="primary"  (click)="deleteProduct()">Delete </button>
+          <button  mat-raised-button  (click)="deleteProduct()">Delete </button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button    mat-raised-button color="primary"  (click)="getDetails()">Get Details </button>
+          <button    mat-raised-button  (click)="getDetails()">Get Details </button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button  mat-raised-button color="primary"  (click)="goBack()">
             &nbsp;&nbsp;&nbsp;
@@ -86,6 +86,46 @@
           </button>
         </div>
       </div>
+
+
+    <!-- sorting service testing-->
+    <div>
+      <div>
+        <mat-divider ></mat-divider>
+        <span><h4>Sorting data (on click button) it will sort the data using Sorting-Service in UI</h4></span>
+      </div>
+      <div>
+
+        <table class="a">
+          <tr class="tr.a">
+            <th class="th.a">
+              <button   mat-raised-button (click)="sortingService.onSortData('name',directData, decode)">Product Name</button>
+            </th>
+            <th>
+              <button   mat-raised-button   (click)="sortingService.onSortData('active',directData, decode)" >Active</button>
+            </th>
+          </tr>
+
+          <tbody>
+          <tr class="tr.a" *ngFor="let data of directData">
+            <th class="th.a">
+              <span>{{data.name}}</span>
+            </th>
+            <th class="th.a">
+              <span>{{data.active}}</span>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+    <!-- simple table -->
+    <br />
+
+
   </div>
 
 

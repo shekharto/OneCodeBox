@@ -49,5 +49,8 @@ export abstract class BaseService {
     );
   }
 
+protected getApiUrl(): string {
+  return`http://localhost:5100/Product`;
+}
 
 }
