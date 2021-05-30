@@ -15,6 +15,7 @@ namespace CRUD.Transaction.Product.Model
         {
             modelBuilder.ApplyConfiguration(new ProductConfig());
             modelBuilder.ApplyConfiguration(new ProductPriceConfig());
+            modelBuilder.ApplyConfiguration(new DecompressFileConfig()); 
             base.OnModelCreating(modelBuilder);
         }
 

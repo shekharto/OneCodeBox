@@ -25,15 +25,7 @@ namespace CRUD.Transaction.Product.Api.Controllers
         [Route("PostProducts")]
         public async Task<IApiResult> PostEnumerableAsync(IEnumerable<Entities.Product> products)
         {
-
-
             return await PostResultsAsync(productRepository.PostProductsAsync, products);
-
-            //StopWatch watch = StopWatch.StartNew();
-  
-            //await productRepository.SaveAsync(products);
-            //watch.Stop();
-            //return await GetResultAsync(GetAllProducts);
         }
 
         //[HttpGet]
@@ -47,5 +39,37 @@ namespace CRUD.Transaction.Product.Api.Controllers
         {
             return await productRepository.GetAllAsync();
         }
+
+        /// <summary>
+        /// TODO: comment
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="fileType"></param>
+        /// <returns></returns>
+      [HttpGet]
+        [Route("Export/Id/{Id:long}/FileType/{fileType}")]
+        public async Task<IApiResult> GetDecompressFile(long Id, string fileType)
+        {
+            try
+            {
+                Tuple<byte[], string> result = null;
+                StopWatch watch = StopWatch.StartNew();
+                result = await productRepository.ExportDecompressFileAsync(Id, fileType);
+                if (result.Item2 != null)
+                {
+                    //await AuditEventAsync($"QRDA1 - PHI Exported. The following PHI was exported - {QRDA1_MESSAGE}{Environment.NewLine}Patient ID:{result.Item2}", 
+                    //    typeof(GenerationRepository).GetMethod("ExportCategoryOneDetailsAsync").ToString());
+                }
+
+                watch.Stop();
+
+                return ApiResult<byte>.Ok(result.Item1, watch.Elapsed);
+            }
+            catch (Exception ex)
+            {
+                return  await HandleError1Async(ex, "Export");
+            }
+        }
+
     }
 }

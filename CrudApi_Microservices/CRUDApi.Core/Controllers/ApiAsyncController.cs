@@ -249,12 +249,20 @@ namespace CRUD.Transaction.CRUDApi.Core.Controllers
         }
         #endregion
 
-        private async  Task<ApiResult<T>> HandleErrorAsync<T>(Exception ex, string method)
+        protected   async  Task<ApiResult<T>> HandleErrorAsync<T>(Exception ex, string method)
         {
             // var message = $"{method} {nameof(TEntity)} failed in {typeof(ApiBaseController).Name}.";
             var message =  $"{method} {nameof(TEntity)} failed in controller.";
             return await Task.Run(() => ( ApiResult<T>.ServerError(ex, message)));
         }
+
+        protected async  Task<IApiResult> HandleError1Async(Exception ex, string method)
+        {
+            var message = $"{method} {nameof(TEntity)} failed in controller.";
+
+            return   ApiResult<TEntity>.ServerError(ex, message);
+        }
+
 
         private void ValidateState(TEntity entity, ObjectStateType[] states)
         {

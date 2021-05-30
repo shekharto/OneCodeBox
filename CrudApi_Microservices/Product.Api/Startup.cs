@@ -12,8 +12,10 @@ namespace CRUD.Transaction.Product.Api
 {
     public class Startup : ApiApplicationBuilder
     {
+        IWebHostEnvironment _env;
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            _env = env;
             base.StartUp(configuration, env);
         }
 
@@ -25,6 +27,7 @@ namespace CRUD.Transaction.Product.Api
 
             services.AddScoped<IAsyncContext<Entities.Product>, ProductContext>();
             services.AddScoped<IRepositoryAsync<Entities.Product>, ProductRepository>();
+            services.AddSingleton<string>(_env.ContentRootPath);
         }
 
         public override void Configure(IApplicationBuilder app, IWebHostEnvironment env)
