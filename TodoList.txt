@@ -17,3 +17,22 @@ B) UI
 3. create zip from UI POC. -- done
 4. check how to make a angular build and deploy. -- done.
 5. check if i download the code from git does it download correct angular and compile it.
+
+C) requirements for user authentication techniques...
+	https://www.idrnd.ai/5-authentication-methods-that-can-prevent-the-next-breach/
+
+	a) user pwd forward link (this may be a link comes in email to validate the user id)
+	b) login and logout -- done
+	c) if he try 5 times should get block only admin user can reset it.
+	d) should not allow multiple session of same loged in user on different browser (it work in same browser) -- done.
+	e) user session.
+	f) maintain the acess like Admin-user will have allrights. View-user can view the data other control can get disable. Manage-user can have 		create/update rights. -- important and done.
+	g) multi factor -authentication
+	h) one can login other app using existing authentication like google-user.
+	i) certificate based authentication try captcha and smartphones.
+	g) try to auzure vault-key authenticaiton technique.
+	h) try to use biometric authentication like voice or facial recognition.
+	i) token based authentication -- done.
+	j) policy(Role, Task, ActivityType) based authorization. -- done.
+	k) Enable QR Code generation for TOTP authenticator apps in ASP.NET Core
+	l) if user forward or backward the navigation button it should work correct and should back to orignal page.

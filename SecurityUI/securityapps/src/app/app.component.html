@@ -1,0 +1,55 @@
+<!--<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+  />
+  <span><h1>Welcome To Security System</h1></span>
+    <div class="spacer"></div>
+</div>-->
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon>
+          <img  class="toolbar"
+            width="40"
+            alt="Angular Logo"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+          />
+        </mat-icon>
+      </button>
+      <span  class="onecode-padding-left-10px"><h1>Welcome To Security System</h1></span>
+      <span class="menu-spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav class="onecode-padding-top-5px   navbar-dark bg-dark" [mode]="isToggle ? 'over' : 'side'" opened>
+    <mat-nav-list  class="sidenav-container">
+      <a mat-list-item class=" onecode-margin-bottom-1px"> Main-Menu
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item class=" onecode-margin-bottom-1px" [routerLink]="'/jwtlogin'" routerLinkActive="active">
+        <mat-icon>
+          <img  class=" sub-menu"
+                src="assets/Images/jwt2.png"/>
+        </mat-icon>
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="'/create-account'" routerLinkActive="active"> MS-Identity </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="'/contacts'"> Sign-In with Google </a>
+      <mat-divider></mat-divider>
+     <!-- <a mat-list-item href="" mat-list-item>Close</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

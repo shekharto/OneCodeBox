@@ -1,0 +1,33 @@
+<br>
+
+<div>
+  <h1>measures works!</h1>
+</div>
+
+<br>
+<br>
+
+<div class="center-login">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Module functionality</mat-card-title>
+      <mat-card-subtitle>Dummy buttons. Cosider each button as self functionality.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <button mat-button   [ngClass]="{'cpm-content-disabled': !canManage}">Manage</button>
+      <br>
+      <br>
+      <button mat-button  [ngClass]="{'cpm-content-disabled': !canCreate}">Create or New Measure</button>
+      <br>
+      <br>
+      <button mat-button>View Measure List</button> <button mat-button   [ngClass]="{'cpm-content-disabled': !canViewSql}">View Sql (one of sub functionality or action under view)</button>
+      <br>
+      <br>
+      <button mat-button [ngClass]="{'cpm-content-disabled': !canCreate}">Edit Selected Measure</button>
+      <br>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+

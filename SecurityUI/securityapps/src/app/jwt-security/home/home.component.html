@@ -1,0 +1,79 @@
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid" *ngIf="user">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <img class="sub-menu" src="assets/Images/jwt2.png"
+          />
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-item nav-link" (click)="logout()">Logout </a>
+        </li>
+      </ul>
+    </div>
+    <!-- Right elements -->
+  </div>
+</nav>
+<!-- Navbar -->
+
+
+<mat-sidenav-container class="sub-container" >
+  <!--left sub menu-->
+  <mat-sidenav class="side-nav  onecode-padding-top-10px" mode="side" opened>
+    <mat-nav-list  class="sidenav-container">
+     <a mat-list-item class=" onecode-margin-bottom-1px">
+        Sub-Menu
+       <button mat-mini-fab disabled aria-label="Example icon button with a filter list icon">
+         <mat-icon>filter_list</mat-icon>
+
+       </button>
+      </a>
+      <div *ngFor="let module of modules; let idx = index">
+        <mat-divider></mat-divider>
+        <a mat-list-item [routerLink]=module.toLowerCase() routerLinkActive="active"> {{module}} </a>
+        <mat-divider></mat-divider>
+      </div>
+    <!--  <a mat-list-item [routerLink]="'measures'" routerLinkActive="active"> Measures </a>
+      <mat-divider></mat-divider>-->
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+  <!--load as per sub-menu selection-->
+  <router-outlet></router-outlet>
+
+  <mat-sidenav-content>
+    <br>
+    <br>
+      <div class="container">
+        <p style="background-color: #333333">
+          How this authentication and authorization works? -- User get authenticate against database and return the JWT token. Token will include the userid,
+          Roles and taskid (i.e. each role is assigned 1 or more task). Module name and Task name the starting word are same so when it get match then that Module (menu)
+          will be available or display to user. Depending on the Role and tasks assigned to it the functionality will be enable/disable (or testing purpose we enable/disable the
+          buttons). IF Role==Create Then -- user can Create, View, Edit, List the data but he can't modify or delete others data.
+          IF Role==Manage, user can do anything for that model i.e. any CURD operation.
+          IF Role==View, user can only view the data i.e. listing of record or see the record details.
+          IF Role==Administrator, then user can do anything in any module i.e. CURD operation.
+          On top of this, any specific Activity-Type can be control i.e. IF Role==CREATE but you want to disable the Sql-View functionality that can also be manage under
+          ActivityType.Sql = false. Important .ts files are 1) home.component.ts 2) authentication.service.ts 3) user-access.service.ts.
+          <br>
+
+        Thanks.
+
+          <br><br> Click on any Individual module and need to change in db to see the effect.
+      </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

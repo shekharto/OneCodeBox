@@ -1,0 +1,48 @@
+<html>
+<body>
+<form autocomplete="off" method="post" action="/form/submit">
+
+<div class="center-login">
+
+  <mat-card  class="card-container">
+
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Login Id</mat-label>
+        <input  matInput name="txtlogin" placeholder="login"  autocomplete="off" [(ngModel)]="login.loginId" required>
+      </mat-form-field>
+      <br/>
+      <mat-form-field  appearance="standard">
+        <mat-label>Password</mat-label>
+        <input matInput name="txtpwd" type="password" placeholder="password"  [(ngModel)]="login.password" required>
+      </mat-form-field>
+      <br/>
+
+      <!-- save functionality -->
+      <div>
+        <button  mat-raised-button color="Basic" (click)="userAuthentication()">
+          Login
+        </button>
+        &nbsp; &nbsp;
+        <button  mat-raised-button color="Basic">
+          Register
+        </button>
+      </div>
+    </div>
+
+    <br>
+    <mat-card-content>
+
+        <span> User authentication, authorization,</span>
+        <br>
+         <span>user-management, role-management using</span>
+
+      <p>
+        : JWT technique
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+
