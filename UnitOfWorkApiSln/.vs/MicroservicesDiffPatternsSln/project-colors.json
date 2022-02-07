@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "cd2a489c-4966-4d93-88eb-e84ce875b4b8": {
+      "ProjectGuid": "cd2a489c-4966-4d93-88eb-e84ce875b4b8",
+      "DisplayName": "UnitOfWork.API",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "10a8946f-6977-40a7-b0f9-992c0dc03bb3": {
+      "ProjectGuid": "10a8946f-6977-40a7-b0f9-992c0dc03bb3",
+      "DisplayName": "EventDrivenUserService",
+      "ColorIndex": 1
+    },
+    "be4b51f0-ef2d-40b0-ac06-c6443a047b8f": {
+      "ProjectGuid": "be4b51f0-ef2d-40b0-ac06-c6443a047b8f",
+      "DisplayName": "EventDrivenPostService",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

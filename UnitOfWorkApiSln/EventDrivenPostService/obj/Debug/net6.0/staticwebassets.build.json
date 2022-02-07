@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HUKIMgSS6gOOYE1+kuhEYToeBUAFCA3X1pPcC6tGyDo=",
+  "Source": "EventDrivenPostService",
+  "BasePath": "_content/EventDrivenPostService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

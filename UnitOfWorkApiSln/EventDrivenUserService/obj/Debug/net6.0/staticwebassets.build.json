@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "v8+6OZnT0hOL3dGSBrpbx4x1sFEltXz1I1mK0fnOPhg=",
+  "Source": "EventDrivenUserService",
+  "BasePath": "_content/EventDrivenUserService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
