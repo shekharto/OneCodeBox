@@ -1,0 +1,134 @@
+
+
+<!--  <div class="onecode-padding-16px">
+    <button mat-raised-button color="primary"  (click)="loadProduct()">Load Data...</button>
+  </div>-->
+
+  <div class="onecode-padding-left-16px product-example-container" *ngIf="displayProducts.length > 0" >
+    <div>
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput id="filterVal"   (keyup)="applyFilter($event)" placeholder="search data..." #input>
+          <button matSuffix mat-icon-button aria-label="Clear" (click)="clearData($event);  input.value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+    </div>
+
+    <!-- Table structure -->
+    <div class="product-example-sub-container  mat-elevation-z8">
+      <table mat-table id="tab1" [dataSource]="sortedData" matSort  (matSortChange)="sortData($event)">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+             <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          [aria-label]="checkboxLabel(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <!-- Active Column -->
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+          <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data found for filter: "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <!-- Table end -->
+    </div>
+
+    <!-- add / delete /update and IEnumerable operation -->
+      <div>
+        <div class="onecode-padding-5px" *ngIf="displayProducts.length > 0">
+          <button   routerLink="/productdetails" mat-raised-button >Add</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button  routerLink="/productdetails/{{selectedProductId}}" mat-raised-button >Update </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button  mat-raised-button  (click)="deleteProduct()">Delete </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button    mat-raised-button  (click)="getDetails()">Get Details </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button  mat-raised-button color="primary"  (click)="goBack()">
+            &nbsp;&nbsp;&nbsp;
+            <mat-icon>arrow_back_ios</mat-icon>
+          </button>
+        </div>
+      </div>
+
+
+    <!-- sorting service testing-->
+    <div>
+      <div>
+        <mat-divider ></mat-divider>
+        <span><h4>Sorting data (on click button) it will sort the data using Sorting-Service in UI</h4></span>
+      </div>
+      <div>
+
+        <table class="a">
+          <tr class="tr.a">
+            <th class="th.a">
+              <button   mat-raised-button (click)="sortingService.onSortData('name',directData, decode)">Product Name</button>
+            </th>
+            <th>
+              <button   mat-raised-button   (click)="sortingService.onSortData('active',directData, decode)" >Active</button>
+            </th>
+          </tr>
+
+          <tbody>
+          <tr class="tr.a" *ngFor="let data of directData">
+            <th class="th.a">
+              <span>{{data.name}}</span>
+            </th>
+            <th class="th.a">
+              <span>{{data.active}}</span>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+    <!-- simple table -->
+    <br />
+
+
+  </div>
+
+
+
+
+
