@@ -1,6 +1,7 @@
 # OneCodeBox
- OneCodeBox
+ This box will contain multiple project which heavily used in the enterprise application
+ 1) UnitOfWork project, used in microservices.
+ 2) EventDriven implementation in microservices.
+ 3) SecurityFramework - this include different ways of authentication and authorization.
+ 4) SecurityUI - this UI will in support to SecurityFramework.
 
-# OneCodeBox\CrudApi_Microservices
-
-#this is an boiler plate to create microservices pattern or architecture. It implement CRUD and other other functionality by default, user need to just add the domain base module.
