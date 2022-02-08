@@ -1,4 +1,3 @@
-# OneCodeBox
 #  This box will contain multiple project which heavily used in the enterprise application
  # 1) UnitOfWork project, used in microservices.
  # 2) EventDriven implementation in microservices.
